@@ -1,9 +1,5 @@
 from random import randint
 
-secret_num = randint(1, 100)
-
-attempts = 0
-
 
 def get_valid_guess():
     while True:
@@ -19,19 +15,37 @@ def get_valid_guess():
 
         return num
 
+
 while True:
-    user_num = get_valid_guess()
+    secret_num = randint(1, 100)
 
-    attempts += 1
-    
-    if user_num > secret_num:
-        print("Wrong! Too high...")
+    attempts = 0
 
-    elif user_num < secret_num:
-        print("Wrong! Too low...")
+    while True:
+        user_num = get_valid_guess()
 
-    else:
-        print(f"That's right! Random number is {secret_num}")
+        attempts += 1
+
+        if user_num > secret_num:
+            print("Wrong! Too high...")
+
+        elif user_num < secret_num:
+            print("Wrong! Too low...")
+
+        else:
+            print(f"That's right! Random number is {secret_num}")
+            break
+
+    print(f"You've needed {attempts} attempts")
+
+    while True:
+        play_again = input("Do you want to play again? (y,n) ").lower()
+        if play_again != 'y' and play_again != 'n':
+            print("You must enter y or n!")
+            continue
         break
 
-print(f"You've needed {attempts} attempts")
+    if play_again == 'y':
+        continue
+    else:
+        break
