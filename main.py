@@ -25,12 +25,12 @@ while True:
 
     while True:
         play_again = input("Do you want to play again? (y,n) ").lower()
-        if play_again != 'y' and play_again != 'n':
+        if play_again != "y" and play_again != "n":
             print("You must enter y or n!")
             continue
         break
 
-    if play_again == 'y':
+    if play_again == "y":
         continue
     else:
         break
